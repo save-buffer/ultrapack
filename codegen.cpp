@@ -95,8 +95,7 @@ void Ultrapack_Compress%d(const uint32_t **input, uint8_t **output)
     *input += %d;
 )", byte_idx, igroup, bit_idx, groupings[num_values].elements_per_group);
     }
-    std::fprintf(file, R"(
-    *output += %d;
+    std::fprintf(file, R"(    *output += %d;
 }
 
 )", num_bytes);
@@ -149,6 +148,7 @@ int main()
     std::FILE *file = std::fopen("ultrapack.h", "w");
     std::fprintf(file,
 R"(#pragma once
+#include <cstdint>
 
 struct UltrapackGrouping
 {
@@ -178,6 +178,7 @@ double BitsPerValue(int num_distinct_values)
 {
     return static_cast<double>(BitsPerGroup(num_distinct_values)) / static_cast<double>(ElementsPerGroup(num_distinct_values));
 }
+
 )");
     for(int i = 2; i <= NumValuesToCompute; i++)
         WriteCompressFunction(file, i);
