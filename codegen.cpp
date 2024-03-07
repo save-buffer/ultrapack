@@ -117,7 +117,8 @@ void Ultrapack_Decompress%d(const uint8_t **input, uint32_t **output)
         int byte_idx = idx / 8;
         int bit_idx = idx % 8;
         std::fprintf(file, "    uint64_t group%d = (*(uint64_t *)((*input) + %d)) >> %d;", igroup, byte_idx, bit_idx);
-        for(int ival = 0; ival < groupings[num_values].elements_per_group; ival++)
+        std::fprintf(file, "    group%d &= (1ull << %d) - 1;", igroup, groupings[num_values].bits_per_group);
+        for(int ival = groupings[num_values].elements_per_group - 1; ival >= 0; ival--)
         {
             std::fprintf(file, R"(
     (*output)[%d] = (uint32_t)(group%d %% %d);

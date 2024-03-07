@@ -34,7 +34,7 @@ void Bitpack_Decompress%d(const uint8_t **input, uint32_t **output)
 {
     const uint64_t mask = (1 << %d) - 1;
     uint64_t group = *((uint64_t *)(*input));
-)", num_bits, num_packed_together, num_bits);
+)", num_bits, num_packed_together, num_bits, num_bits);
     for(int ielement = 0; ielement < num_packed_together; ielement++)
     {
         int shift = ielement * num_bits;

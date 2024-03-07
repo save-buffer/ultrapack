@@ -141,7 +141,7 @@ void Bitpack_Compress8(const uint32_t **input, uint8_t **output)
 // Unpack 1 bytes into 8 elements
 void Bitpack_Decompress1(const uint8_t **input, uint32_t **output)
 {
-    const uint64_t mask = (1 << 8) - 1;
+    const uint64_t mask = (1 << 1) - 1;
     uint64_t group = *((uint64_t *)(*input));
     (*output)[0] = (group >> 0) & mask;
     (*output)[1] = (group >> 1) & mask;
@@ -158,7 +158,7 @@ void Bitpack_Decompress1(const uint8_t **input, uint32_t **output)
 // Unpack 2 bytes into 8 elements
 void Bitpack_Decompress2(const uint8_t **input, uint32_t **output)
 {
-    const uint64_t mask = (1 << 8) - 1;
+    const uint64_t mask = (1 << 2) - 1;
     uint64_t group = *((uint64_t *)(*input));
     (*output)[0] = (group >> 0) & mask;
     (*output)[1] = (group >> 2) & mask;
@@ -175,7 +175,7 @@ void Bitpack_Decompress2(const uint8_t **input, uint32_t **output)
 // Unpack 3 bytes into 8 elements
 void Bitpack_Decompress3(const uint8_t **input, uint32_t **output)
 {
-    const uint64_t mask = (1 << 8) - 1;
+    const uint64_t mask = (1 << 3) - 1;
     uint64_t group = *((uint64_t *)(*input));
     (*output)[0] = (group >> 0) & mask;
     (*output)[1] = (group >> 3) & mask;
@@ -192,7 +192,7 @@ void Bitpack_Decompress3(const uint8_t **input, uint32_t **output)
 // Unpack 4 bytes into 8 elements
 void Bitpack_Decompress4(const uint8_t **input, uint32_t **output)
 {
-    const uint64_t mask = (1 << 8) - 1;
+    const uint64_t mask = (1 << 4) - 1;
     uint64_t group = *((uint64_t *)(*input));
     (*output)[0] = (group >> 0) & mask;
     (*output)[1] = (group >> 4) & mask;
@@ -209,7 +209,7 @@ void Bitpack_Decompress4(const uint8_t **input, uint32_t **output)
 // Unpack 5 bytes into 8 elements
 void Bitpack_Decompress5(const uint8_t **input, uint32_t **output)
 {
-    const uint64_t mask = (1 << 8) - 1;
+    const uint64_t mask = (1 << 5) - 1;
     uint64_t group = *((uint64_t *)(*input));
     (*output)[0] = (group >> 0) & mask;
     (*output)[1] = (group >> 5) & mask;
@@ -226,7 +226,7 @@ void Bitpack_Decompress5(const uint8_t **input, uint32_t **output)
 // Unpack 6 bytes into 8 elements
 void Bitpack_Decompress6(const uint8_t **input, uint32_t **output)
 {
-    const uint64_t mask = (1 << 8) - 1;
+    const uint64_t mask = (1 << 6) - 1;
     uint64_t group = *((uint64_t *)(*input));
     (*output)[0] = (group >> 0) & mask;
     (*output)[1] = (group >> 6) & mask;
@@ -243,7 +243,7 @@ void Bitpack_Decompress6(const uint8_t **input, uint32_t **output)
 // Unpack 7 bytes into 8 elements
 void Bitpack_Decompress7(const uint8_t **input, uint32_t **output)
 {
-    const uint64_t mask = (1 << 8) - 1;
+    const uint64_t mask = (1 << 7) - 1;
     uint64_t group = *((uint64_t *)(*input));
     (*output)[0] = (group >> 0) & mask;
     (*output)[1] = (group >> 7) & mask;

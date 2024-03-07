@@ -2,9 +2,13 @@
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 import csv
 
 sns.set()
+
+def geomean(x):
+    return np.exp(np.log(x).mean())
 
 num_values = []
 bpv = []
@@ -17,6 +21,8 @@ with open('bpv.csv') as f:
         bpv.append(float(row[1]))
         normal_bpv.append(float(row[2]))
         savings.append(float(row[3]))
+
+print(f'Percent savings geomean: {geomean([x for x in savings if x != 0.0])}')
 
 ax1 = plt.subplot(2, 1, 1)
 ax2 = plt.subplot(2, 1, 2)
